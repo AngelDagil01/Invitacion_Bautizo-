@@ -195,6 +195,11 @@ input:focus,select:focus{border-color:var(--gold); outline:none;}
 </head>
 <body class="locked">
 
+<!-- Música de la invitación: coloca musica.mp3 en la misma carpeta que este HTML -->
+<audio id="musicaInvitacion" preload="auto">
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
 <div class="cover" id="cover">
   <div class="cover-title">Has recibido una invitación</div>
   <form class="cover-form" id="nameGate">
@@ -299,7 +304,7 @@ input:focus,select:focus{border-color:var(--gold); outline:none;}
 const C = {
   name: 'Bautizo de Alexito',
   date: '2026-11-08',          // 8 de noviembre de 2026
-  time: '11:00',               // Hora estimada
+  time: '12:30',               // Hora del evento
   place: 'Hotel bambú, salón salomónico',
   address: 'Hotel Bambú, Salón Salomónico',
   message: 'Queremos compartir con ustedes este momento tan especial e importante en nuestras vidas.',
@@ -335,6 +340,14 @@ $('nameGate').addEventListener('submit', e => {
   guestGreeting.textContent = `Invitación para ${value}`;
   tapText.textContent = 'Toca el sello para abrir';
   $('cover').classList.add('envelope-ready');
+
+  // Reproducir la canción al completar el nombre, sin alterar el resto del flujo.
+  const musica = $('musicaInvitacion');
+  musica.currentTime = 0;
+  musica.play().catch(error => {
+    console.log('La reproducción automática fue bloqueada por el navegador:', error);
+  });
+
   setTimeout(() => $('seal').focus(), 650);
 });
 $('weekday').textContent = cap(when.toLocaleDateString('es',{weekday:'long'}));
