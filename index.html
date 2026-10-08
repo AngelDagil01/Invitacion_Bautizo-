@@ -195,8 +195,8 @@ input:focus,select:focus{border-color:var(--gold); outline:none;}
 </head>
 <body class="locked">
 
-<!-- Música de la invitación: coloca musica.mp3 en la misma carpeta que este HTML -->
-<audio id="musicaInvitacion" autoplay loop preload="auto">
+<!-- Elemento de Audio -->
+<audio id="musicaInvitacion" loop preload="auto">
   <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
@@ -222,51 +222,49 @@ input:focus,select:focus{border-color:var(--gold); outline:none;}
 
     <div class="reveal">
       <div class="small">Tenemos el agrado de invitarle al</div>
-      <div class="script name" id="name">Bautizo de Alexito</div>
+      <div class="script name" id="name">Bautizo</div>
       <div class="name-greeting" id="guestGreeting"></div>
       
       <!-- Imagen incluida -->
       <div class="photo-container">
-        <img src="bautizo.jpg" alt="Foto del bautizo">
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAQFBQkGCQkJCQkKCAkICgsLCgoLCwwKCwoLCgwMDAwNDQwMDAwMDw4PDAwNDw8PDw0OERERDhEQEBETERMREQ0BBAQECAYIBwgIBwgGCAYICAgHBwgICQcHBwcHCQoJCAgICAkKCQgIBggICQkJCgoJCQoICQgKCgoKCg4QDg4Od//CABEIBagEPgMBIgACEQEDEQH/xAEoAAACAwEBAQAAAAAAAAAAAAABAgADBAUGBwEBAQEBAQEAAAAAAAAAAAAAAAECAwQFEAACAQIEAgUKBAMFBwQDAAAAAQIDEQQQEiEgMQVBUWFxBhMiMDI1dIGhsxRCYpElUuEv130x4X4g14241N2/aAAgBAQABAgD/AP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQ0AAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAMD/2gAIAQ1AAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAMD/2gAIAQ0AAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAMD/2gAIAQ0AAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAMD/2gAIAQ0AAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAMD/2gAIAQ0AAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAMD/2gAIAQ0AAAAA/9oACAEBAAEFAf8A5f/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQEAAD8/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oACAEBAAE/AP/Z" alt="Fotografía del bautizo">
       </div>
 
-      <div class="msg">"Acompáñanos a celebrar este momento tan especial en la vida de nuestro pequeño."</div>
+      <p class="msg">Acompáñanos a celebrar este día tan especial y lleno de bendiciones.</p>
     </div>
 
-    <div class="orn reveal">✦</div>
+    <div class="orn">❖</div>
 
     <div class="reveal">
-      <div class="small">Sábado</div>
+      <div class="small">Fecha y Hora</div>
       <div class="date-grid">
-        <div class="side">Nov</div>
+        <div class="side">Sábado</div>
         <div class="day">15</div>
-        <div class="side">2025</div>
+        <div class="side">Noviembre</div>
       </div>
       <div class="time">11:00 AM</div>
-    </div>
 
-    <div class="reveal">
-      <div class="count" id="timer">
-        <div><b id="d">00</b><span>Días</span></div>
-        <div><b id="h">00</b><span>Horas</span></div>
-        <div><b id="m">00</b><span>Min</span></div>
-        <div><b id="s">00</b><span>Seg</span></div>
+      <div class="count" id="countdown">
+        <div><b id="cD">00</b><span>Días</span></div>
+        <div><b id="cH">00</b><span>Horas</span></div>
+        <div><b id="cM">00</b><span>Min</span></div>
+        <div><b id="cS">00</b><span>Seg</span></div>
       </div>
-      <div class="done" id="timerDone" style="display:none;">¡Hoy es el gran día!</div>
+      <div class="done" id="countDone" style="display:none;">¡Llegó el gran día!</div>
     </div>
 
-    <div class="orn reveal">✦</div>
+    <div class="orn">❖</div>
 
     <div class="reveal">
-      <div class="small">Lugar de la Ceremonia</div>
-      <div class="place">Parroquia San José</div>
+      <div class="small">Lugar del Evento</div>
+      <div class="place">Iglesia Nuestra Señora</div>
       <div class="addr">Av. Principal #123, Ciudad</div>
       <div class="btns">
-        <a class="btn" href="https://maps.google.com" target="_blank" rel="noopener">Ver Ubicación</a>
+        <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn solid">Ver Ubicación en Mapa</a>
       </div>
     </div>
 
-    <div class="orn reveal">✦</div>
+    <div class="orn">❖</div>
 
     <div class="reveal">
       <div class="small">Confirmación de Asistencia</div>
@@ -276,160 +274,141 @@ input:focus,select:focus{border-color:var(--gold); outline:none;}
           <input type="text" id="rsvpName" required>
         </div>
         <div>
-          <label for="rsvpStatus">¿Asistirás?</label>
-          <select id="rsvpStatus" required>
+          <label for="rsvpAttending">¿Asistirás?</label>
+          <select id="rsvpAttending" required>
             <option value="">Selecciona una opción</option>
             <option value="si">Sí, asistiré</option>
-            <option value="no">Lo siento, no podré asistir</option>
+            <option value="no">No podré asistir</option>
           </select>
         </div>
-        <div>
-          <label for="rsvpGuests">Acompañantes</label>
-          <select id="rsvpGuests">
-            <option value="0">Solo yo</option>
-            <option value="1">+1 Acompañante</option>
-            <option value="2">+2 Acompañantes</option>
-          </select>
-        </div>
-        <button class="btn solid" type="submit">Enviar Confirmación</button>
+        <button type="submit" class="btn solid">Enviar Confirmación</button>
       </form>
-      <div class="thanks" id="thanksMsg">¡Muchas gracias por confirmar tu asistencia!</div>
+      <div class="thanks" id="rsvpThanks">¡Muchas gracias por confirmar tu asistencia!</div>
     </div>
 
-    <div class="reveal">
-      <div class="gift-note">
-        <div class="gift-icon">
-          <svg viewBox="0 0 64 64">
-            <path class="gift-box" d="M12 28h40v26H12z"/>
-            <path class="gift-ribbon" d="M32 28v26M20 28h24"/>
-            <g class="gift-lid">
-              <path class="gift-box" d="M8 20h48v8H8z"/>
-              <path class="gift-ribbon" d="M32 20v8"/>
-            </g>
-            <path class="gift-shine" d="M16 24h32"/>
-            <circle class="gift-spark" cx="32" cy="12" r="3"/>
-          </svg>
-        </div>
-        <div class="gift-label">Muestra de Cariño</div>
-        <div class="gift-message">Su presencia es nuestro mejor regalo, pero si desean hacernos un obsequio, dispondremos de un buzón de sobres el día del evento.</div>
+    <div class="gift-note reveal">
+      <div class="gift-icon">
+        <svg viewBox="0 0 64 64">
+          <path class="gift-box" d="M12 28h40v26H12z"/>
+          <path class="gift-ribbon" d="M32 28v26M20 28v26M44 28v26"/>
+          <g class="gift-lid">
+            <path class="gift-box" d="M8 20h48v8H8z"/>
+            <path class="gift-ribbon" d="M32 20v8"/>
+          </g>
+          <path class="gift-shine" d="M16 16c6-8 16-8 16 4c0-12 10-12 16-4"/>
+          <circle class="gift-spark" cx="32" cy="12" r="2"/>
+        </svg>
       </div>
+      <div class="gift-label">Lluvia de Sobres</div>
+      <p class="gift-message">Su presencia es nuestro mejor regalo. Si desean hacernos un presente, contaremos con un buzón para sobres el día del evento.</p>
     </div>
 
-    <div class="foot reveal">🕊</div>
+    <div class="foot script">¡Te esperamos!</div>
 
   </div></div>
 </main>
 
 <script>
-  // Autoplay de música
+  // Inicialización de Variables y Lógica Principal
+  const nameGate = document.getElementById('nameGate');
+  const guestNameInput = document.getElementById('guestName');
+  const cover = document.getElementById('cover');
+  const peekName = document.getElementById('peekName');
+  const seal = document.getElementById('seal');
+  const sealLetter = document.getElementById('sealLetter');
+  const tapText = document.getElementById('tapText');
+  const guestGreeting = document.getElementById('guestGreeting');
+  const rsvpName = document.getElementById('rsvpName');
   const audio = document.getElementById('musicaInvitacion');
-  
+
+  // Intento de reproducir música
   function reproducirMusica() {
-    if (audio && audio.paused) {
-      audio.play().catch(function(error) {
-        console.log("Autoplay restringido por el navegador hasta primera interacción.");
+    if (audio) {
+      audio.play().catch(function(e) {
+        console.log("El navegador requiere interacción previa para reproducir audio.");
       });
     }
   }
 
-  window.addEventListener('DOMContentLoaded', reproducirMusica);
-  window.addEventListener('load', reproducirMusica);
-
-  const iniciarAudioEnInteraccion = () => {
-    reproducirMusica();
-    document.removeEventListener('click', iniciarAudioEnInteraccion);
-    document.removeEventListener('touchstart', iniciarAudioEnInteraccion);
-    document.removeEventListener('keydown', iniciarAudioEnInteraccion);
-  };
-
-  document.addEventListener('click', iniciarAudioEnInteraccion);
-  document.addEventListener('touchstart', iniciarAudioEnInteraccion);
-  document.addEventListener('keydown', iniciarAudioEnInteraccion);
-
-  // Lógica de Sobre e Invitado
-  const cover = document.getElementById('cover');
-  const nameGate = document.getElementById('nameGate');
-  const guestNameInput = document.getElementById('guestName');
-  const seal = document.getElementById('seal');
-  const sealLetter = document.getElementById('sealLetter');
-  const peekName = document.getElementById('peekName');
-  const tapText = document.getElementById('tapText');
-  const guestGreeting = document.getElementById('guestGreeting');
-  const rsvpName = document.getElementById('rsvpName');
-
-  nameGate.addEventListener('submit', (e) => {
+  // Manejador del Formulario Inicial
+  nameGate.addEventListener('submit', function(e) {
     e.preventDefault();
-    const nameVal = guestNameInput.value.trim();
-    if (!nameVal) return;
+    const nombre = guestNameInput.value.trim();
+    if (!nombre) return;
 
-    sealLetter.textContent = nameVal.charAt(0).toUpperCase();
-    peekName.textContent = nameVal;
-    guestGreeting.textContent = `¡Especialmente para ti, ${nameVal}!`;
-    rsvpName.value = nameVal;
+    // Intentar reproducir la música inmediatamente con el clic/submit
+    reproducirMusica();
+
+    peekName.textContent = nombre;
+    guestGreeting.textContent = 'Especialmente para: ' + nombre;
+    rsvpName.value = nombre;
+    sealLetter.textContent = nombre.charAt(0).toUpperCase();
 
     cover.classList.add('envelope-ready');
-    seal.disabled = false;
+    seal.removeAttribute('disabled');
     tapText.textContent = 'Toca el sello para abrir';
   });
 
-  seal.addEventListener('click', () => {
+  // Manejador del Sello para abrir el sobre
+  seal.addEventListener('click', function() {
+    reproducirMusica();
     cover.classList.add('open');
-    setTimeout(() => {
+    setTimeout(function() {
       cover.classList.add('gone');
       document.body.classList.remove('locked');
-      triggerReveals();
+      iniciarAnimaciones();
     }, 1200);
   });
 
-  // Animación de aparición (Reveals)
-  function triggerReveals() {
+  // Animaciones al revelar la tarjeta
+  function iniciarAnimaciones() {
     const reveals = document.querySelectorAll('.reveal');
-    reveals.forEach((el, idx) => {
-      setTimeout(() => {
+    reveals.forEach(function(el, index) {
+      setTimeout(function() {
         el.classList.add('in');
-      }, idx * 180);
+      }, index * 200);
     });
   }
 
-  // Cuenta regresiva (15 Nov 2025 11:00:00)
-  const targetDate = new Date('2025-11-15T11:00:00').getTime();
-  const dEl = document.getElementById('d');
-  const hEl = document.getElementById('h');
-  const mEl = document.getElementById('m');
-  const sEl = document.getElementById('s');
-  const timerDone = document.getElementById('timerDone');
-  const timerGrid = document.getElementById('timer');
+  // Cuenta Regresiva (Ajusta la fecha según tu evento)
+  const fechaEvento = new Date("Nov 15, 2026 11:00:00").getTime();
+  const cD = document.getElementById('cD');
+  const cH = document.getElementById('cH');
+  const cM = document.getElementById('cM');
+  const cS = document.getElementById('cS');
+  const countDone = document.getElementById('countDone');
+  const countdownGrid = document.getElementById('countdown');
 
-  const countInterval = setInterval(() => {
-    const now = new Date().getTime();
-    const diff = targetDate - now;
+  const timer = setInterval(function() {
+    const ahora = new Date().getTime();
+    const distancia = fechaEvento - ahora;
 
-    if (diff <= 0) {
-      clearInterval(countInterval);
-      if (timerGrid) timerGrid.style.display = 'none';
-      if (timerDone) timerDone.style.display = 'block';
+    if (distancia < 0) {
+      clearInterval(timer);
+      countdownGrid.style.display = 'none';
+      countDone.style.display = 'block';
       return;
     }
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
 
-    if (dEl) dEl.textContent = String(days).padStart(2, '0');
-    if (hEl) hEl.textContent = String(hours).padStart(2, '0');
-    if (mEl) mEl.textContent = String(minutes).padStart(2, '0');
-    if (sEl) sEl.textContent = String(seconds).padStart(2, '0');
+    cD.textContent = dias < 10 ? '0' + dias : dias;
+    cH.textContent = horas < 10 ? '0' + horas : horas;
+    cM.textContent = minutos < 10 ? '0' + minutos : minutos;
+    cS.textContent = segundos < 10 ? '0' + segundos : segundos;
   }, 1000);
 
   // Formulario RSVP
   const rsvpForm = document.getElementById('rsvpForm');
-  const thanksMsg = document.getElementById('thanksMsg');
+  const rsvpThanks = document.getElementById('rsvpThanks');
 
-  rsvpForm.addEventListener('submit', (e) => {
+  rsvpForm.addEventListener('submit', function(e) {
     e.preventDefault();
     rsvpForm.style.display = 'none';
-    thanksMsg.style.display = 'block';
+    rsvpThanks.style.display = 'block';
   });
 </script>
 
